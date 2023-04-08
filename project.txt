@@ -1,0 +1,57 @@
+package Interview.Practise;
+import java.util.HashMap; 
+import java.util.LinkedList; 
+import java.util.Map;
+
+
+
+public class demo2 {
+	//Capacity of songs list 
+		private int capacity; 
+		
+		// Map of user and list of recently played songs 
+		private Map<Integer, LinkedList<String>> songs; 
+
+		// Constructor 
+		public demo2(int capacity) 
+		{ 
+			this.capacity = capacity; 
+			songs = new HashMap<>(); 
+		} 
+
+		// Function to store a song-user pair 
+		public void storeSong(Integer userId, String songName) 
+		{ 
+			// If the list is empty then create a new Linkedlist 
+			if (!songs.containsKey(userId)) { 
+				LinkedList<String> songsList = new LinkedList<>(); 
+				songsList.add(songName); 
+				songs.put(userId, songsList); 
+			} 
+			else { 
+				LinkedList<String> songsList = songs.get(userId); 
+				// If the list is full then remove the least recently played song 
+				if (songsList.size() == capacity) 
+					songsList.removeLast(); 
+				// Add the new song at the front of the list 
+				songsList.addFirst(songName); 
+				songs.put(userId, songsList); 
+			} 
+		} 
+
+		// Function to get the recently played songs 
+		public LinkedList<String> getSongs(Integer userId) 
+		{ 
+			return songs.get(userId); 
+		}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		demo2 d = new demo2(3);
+		d.getSongs();
+		
+	}
+
+}
+
+
