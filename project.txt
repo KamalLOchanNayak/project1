@@ -5,13 +5,13 @@ import java.util.Map;
 
 
 
-public class songs {
+public class song {
 		private int capacity; 
 		
 		private Map<Integer, LinkedList<String>> songs; 
 
 		// Constructor 
-		public songs(int capacity) 
+		public song(int capacity) 
 		{ 
 			this.capacity = capacity; 
 			songs = new HashMap<>(); 
@@ -43,7 +43,7 @@ public class songs {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		songs d = new songs(3);
+		song d = new song(3);
 		d.storeSong(1, "s1");
 		d.storeSong(1, "s2");
 		d.storeSong(1, "s3");
